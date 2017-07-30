@@ -1,0 +1,4 @@
+D:\Work\CBHSTest\Utils\bin\Debug\Utils.dll
+D:\Work\CBHSTest\Utils\bin\Debug\Utils.pdb
+D:\Work\CBHSTest\Utils\obj\Debug\Utils.dll
+D:\Work\CBHSTest\Utils\obj\Debug\Utils.pdb

@@ -1,0 +1,5 @@
+D:\Work\CBHSTest\Utils\bin\Debug\HelperUtility.dll
+D:\Work\CBHSTest\Utils\bin\Debug\HelperUtility.pdb
+D:\Work\CBHSTest\Utils\obj\Debug\HelperUtility.csprojResolveAssemblyReference.cache
+D:\Work\CBHSTest\Utils\obj\Debug\HelperUtility.dll
+D:\Work\CBHSTest\Utils\obj\Debug\HelperUtility.pdb

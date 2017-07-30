@@ -1,0 +1,127 @@
+﻿@model Mvc.Models.AddMemberViewModel
+<!-- START PLUGINS -->
+<script type="text/javascript" src="~/js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="~/js/plugins/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="~/js/plugins/bootstrap/bootstrap.min.js"></script>
+<script type='text/javascript' src='~/js/plugins/icheck/icheck.min.js'></script>
+<script type="text/javascript" src="~/js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+<script type="text/javascript" src="~/js/demo_tables.js"></script>
+<script type="text/javascript" src="~/js/settings.js"></script>
+<script type="text/javascript" src="~/js/plugins.js"></script>
+<script type="text/javascript" src="~/js/actions.js"></script>
+<script type="text/javascript" src="~/js/plugins/bootstrap/bootstrap-datepicker.js"></script>
+<!-- END PLUGINS -->
+<link href="~/Content/css/theme-default.css" rel="stylesheet" />
+
+<div class="page-content-wrap">
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("Index", "Members", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.ValidationSummary(true)
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>Add Members</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            @Html.TextBoxFor(m => m.FirstName, new { @class = "col-md-9 form-control" })
+                                            @Html.ValidationMessageFor(m => m.FirstName)
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            @Html.TextBoxFor(m => m.LastName, new { @class = "col-md-9 form-control" })
+                                            @Html.ValidationMessageFor(m => m.LastName)
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "col-md-9 form-control" })
+                                            @Html.ValidationMessageFor(m => m.Email)
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.DateOfBirth, new { @class = "col-md-2  control-label" })
+                                    <div class="col-md-9">
+                                        <div class="input-group">
+                                            @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "col-md-9 input-group form-control datepicker", type = "date" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" class="btn btn-primary pull-right" value="Add" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                if (Model != null)
+                {
+                    var grid = new WebGrid(Model.Members, canSort: false, canPage: false);
+                    int rowVal = 0;
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><strong>Members</strong></h3>
+                            </div>
+                            <div class="panel-body">
+                                @grid.GetHtml(
+                                tableStyle: "table table-striped table-hover", // applying style on grid
+                                fillEmptyRows: false,
+                                columns:
+                                grid.Columns
+                                (
+                                     grid.Column("MemberID", "Member ID", format: item => rowVal = rowVal + 1),
+                                      grid.Column("FirstName", "First Name"),
+                                     grid.Column("LastName", "Last Name"),
+                                     grid.Column("Email", "Email"),
+                                     grid.Column("DateOfBirth", "Date Of Birth")
+
+                                    ),
+                                    mode: WebGridPagerModes.Numeric)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Oldest Member:</h2>
+                        <div class="col-sm-7">
+                            <label>@Model.OldestMember</label>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+    </div>
+</div>
+    </div>
+
+@section Scripts
+{
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}
+
+

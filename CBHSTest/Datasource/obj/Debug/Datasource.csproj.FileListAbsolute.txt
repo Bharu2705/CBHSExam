@@ -1,0 +1,4 @@
+D:\Work\CBHSTest\Datasource\bin\Debug\Datasource.dll
+D:\Work\CBHSTest\Datasource\bin\Debug\Datasource.pdb
+D:\Work\CBHSTest\Datasource\obj\Debug\Datasource.dll
+D:\Work\CBHSTest\Datasource\obj\Debug\Datasource.pdb
